@@ -472,7 +472,7 @@ section { position: relative; padding: 88px 0; }
 #tab-stickers .product-card:nth-child(1) .product-media { transform: rotate(-3deg); }
 #tab-stickers .product-card:nth-child(2) .product-media { transform: rotate(2deg); }
 #tab-stickers .product-card:nth-child(3) .product-media { transform: rotate(-2deg); }
-#tab-stickers .product-card .product-media:hover { transform: rotate(0deg) scale(1.03) !important; }
+.catalogo .product-media:hover { transform: rotate(0deg) scale(1.03) !important; }
 
 .product-media {
   position: relative;
