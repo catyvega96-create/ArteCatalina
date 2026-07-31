@@ -310,36 +310,57 @@ section { position: relative; padding: 88px 0; }
 .hero-art { position: relative; min-height: 440px; display: flex; align-items: center; justify-content: center; }
 
 .hero-art .blob {
-  width: 420px;
-  height: 420px;
+  width: 380px;
+  height: 380px;
   background: var(--yellow-soft);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
-.hero-stickers {
+/* ---------- Órbita: las 4 piezas inscritas en un círculo, girando juntas ---------- */
+.hero-orbit {
   position: relative;
   z-index: 2;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  padding: 20px;
-  max-width: 480px;
+  width: 320px;
+  height: 320px;
 }
 
-.sticker-chip { width: 148px; aspect-ratio: 1/1; }
-.sticker-chip.sc-1 { translate: 0 8px; animation: spin-sc1 17s linear infinite; }
-.sticker-chip.sc-2 { translate: 0 -16px; width: 168px; z-index: 3; animation: spin-sc2 22s linear infinite reverse; }
-.sticker-chip.sc-3 { translate: 0 10px; animation: spin-sc3 19s linear infinite; }
-.sticker-chip.sc-4 { translate: 0 -4px; width: 120px; animation: spin-sc4 14s linear infinite reverse; }
+.orbit-pivot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  animation: orbit-cw 32s linear infinite;
+}
+.op-1 { animation-delay: 0s; }
+.op-2 { animation-delay: -8s; }
+.op-3 { animation-delay: -16s; }
+.op-4 { animation-delay: -24s; }
 
-@keyframes spin-sc1 { from { rotate: -9deg; } to { rotate: 351deg; } }
-@keyframes spin-sc2 { from { rotate: 7deg; } to { rotate: 367deg; } }
-@keyframes spin-sc3 { from { rotate: -5deg; } to { rotate: 355deg; } }
-@keyframes spin-sc4 { from { rotate: 10deg; } to { rotate: 370deg; } }
+.orbit-radius {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.or-1 { width: 140px; height: 140px; translate: 118px -70px; }
+.or-2 { width: 152px; height: 152px; translate: 118px -76px; }
+.or-3 { width: 140px; height: 140px; translate: 118px -70px; }
+.or-4 { width: 122px; height: 122px; translate: 118px -61px; }
+
+.orbit-face {
+  width: 100%;
+  height: 100%;
+  animation: orbit-ccw 32s linear infinite;
+}
+.op-1 .orbit-face { animation-delay: 0s; }
+.op-2 .orbit-face { animation-delay: -8s; }
+.op-3 .orbit-face { animation-delay: -16s; }
+.op-4 .orbit-face { animation-delay: -24s; }
+
+@keyframes orbit-cw  { from { rotate: 0deg; } to { rotate: 360deg; } }
+@keyframes orbit-ccw { from { rotate: 0deg; } to { rotate: -360deg; } }
 
 .hero-tag {
   position: absolute;
@@ -1026,12 +1047,12 @@ section { position: relative; padding: 88px 0; }
   .footer-grid { grid-template-columns: 1fr; }
   .hero-stats { gap: 20px; }
   .hero-tag { display: none; }
-  .hero-art { min-height: 300px; }
-  .hero-art .blob { width: 280px; height: 280px; }
-  .hero-stickers { max-width: 270px; gap: 10px; padding: 8px; }
-  .sticker-chip { width: 100px; }
-  .sticker-chip.sc-2 { width: 112px; }
-  .sticker-chip.sc-4 { width: 82px; }
+  .hero-art { min-height: 280px; }
+  .hero-art .blob { width: 230px; height: 230px; }
+  .hero-orbit { width: 210px; height: 210px; }
+  .or-1, .or-3 { width: 78px; height: 78px; translate: 60px -39px; }
+  .or-2 { width: 86px; height: 86px; translate: 60px -43px; }
+  .or-4 { width: 66px; height: 66px; translate: 60px -33px; }
 }
 
 body.nav-open .nav-links {
