@@ -364,6 +364,7 @@ section { position: relative; padding: 88px 0; }
   display: flex;
   width: max-content;
   animation: scroll-left 28s linear infinite;
+  will-change: transform;
 }
 .marquee-track span {
   font-family: var(--font-display);
