@@ -1,6 +1,6 @@
 // Catalina Vega Arte — interacciones de la tienda (carrito + WhatsApp)
 
-const WHATSAPP_NUMBER = '525643637527'; // +52, Querétaro, sin espacios ni signos
+const WHATSAPP_NUMBER = '5215649637527'; // +52 1 56 4963 7527 — México requiere el "1" tras el 52 para que wa.me funcione
 
 document.addEventListener('DOMContentLoaded', () => {
 
