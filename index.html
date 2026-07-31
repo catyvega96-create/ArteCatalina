@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Catalina Vega Arte — Tienda de Arte Original</title>
+<meta name="description" content="Stickers, cuadros y encargos de ilustración original en acuarela y tinta, por Catalina Vega.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <nav class="nav">
+    <a href="#inicio" class="brand">
+      <svg class="brand-mark" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+        <rect x="3" y="3" width="42" height="42" rx="15" fill="#FF3D8A"/>
+        <circle cx="24" cy="24" r="5" fill="#fff"/>
+        <circle cx="24" cy="14" r="4.5" fill="#fff"/>
+        <circle cx="24" cy="34" r="4.5" fill="#fff"/>
+        <circle cx="14" cy="24" r="4.5" fill="#fff"/>
+        <circle cx="34" cy="24" r="4.5" fill="#fff"/>
+      </svg>
+      <span class="brand-name">Catalina Vega<small>Arte</small></span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#catalogo">Catálogo</a></li>
+      <li><a href="#galeria">Galería</a></li>
+      <li><a href="#encargos">Encargos</a></li>
+      <li><a href="#sobre-mi">Sobre mí</a></li>
+      <li><a href="#contacto" class="nav-cta">Contacto</a></li>
+    </ul>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="inicio">
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <span class="chip-label chip-green">Hecho a mano en Querétaro</span>
+      <h1>Arte para <span class="hl">pegar<svg viewBox="0 0 100 14" preserveAspectRatio="none" aria-hidden="true"><path d="M2 9 Q 25 2, 50 8 T 98 7" fill="none" stroke="#FF3D8A" stroke-width="5" stroke-linecap="round"/></svg></span>,<br>colgar y regalar.</h1>
+      <p>Stickers pintados a mano, cuadros originales y encargos personalizados — ilustración en acuarela y tinta con la firma de Catalina Vega.</p>
+      <div class="hero-actions">
+        <a href="#catalogo" class="btn btn-primary">Ver stickers</a>
+        <a href="#encargos" class="btn btn-outline">Hacer un encargo</a>
+      </div>
+      <div class="hero-stats">
+        <div><strong>300+</strong><span>Stickers pegados por ahí</span></div>
+        <div><strong>120+</strong><span>Piezas originales</span></div>
+        <div><strong>4.9</strong><span>Valoración clientas</span></div>
+      </div>
+    </div>
+
+    <div class="hero-art">
+      <div class="blob" aria-hidden="true"></div>
+      <div class="hero-tag hero-tag--hand">Hecho a mano</div>
+      <div class="hero-stickers">
+        <div class="sticker-frame sticker-chip sc-1"><img src="assets/img/catalogo/sticker-bugambilia.jpg" alt="Sticker de bugambilia rosa"></div>
+        <div class="sticker-frame sticker-chip sc-2"><img src="assets/img/catalogo/sticker-flor.jpg" alt="Sticker de rama floral"></div>
+        <div class="sticker-frame sticker-chip sc-3"><img src="assets/img/catalogo/sticker-ave.jpg" alt="Sticker de ave en tinta"></div>
+        <div class="sticker-frame sticker-chip sc-4"><img src="assets/img/gallery/hongos-tinta.jpg" alt="Sticker de estudio botánico"></div>
+      </div>
+      <div class="hero-tag hero-tag--material">Acuarela &amp; tinta</div>
+    </div>
+  </div>
+
+  <div class="marquee">
+    <div class="marquee-track">
+      <span>Stickers</span><span>Cuadros originales</span><span>Encargos personalizados</span><span>Envíos a todo México</span>
+      <span>Stickers</span><span>Cuadros originales</span><span>Encargos personalizados</span><span>Envíos a todo México</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STICKER WALL ============ -->
+<section class="sticker-wall">
+  <div class="container">
+    <div class="sticker-wall-head">
+      <span class="chip-label chip-pink">Lo más querido</span>
+      <h2>Stickers que la gente pega en todos lados</h2>
+      <p>Vinil mate resistente al agua, recorte perfecto y colores que no se despintan. Los favoritos de siempre, reunidos aquí.</p>
+    </div>
+
+    <div class="sticker-wall-row">
+      <div class="sticker-frame wall-chip"><img src="assets/img/catalogo/sticker-bugambilia.jpg" alt="Sticker bugambilia rosa"></div>
+      <div class="sticker-frame wall-chip"><img src="assets/img/catalogo/sticker-flor.jpg" alt="Sticker rama floral"></div>
+      <div class="sticker-frame wall-chip"><img src="assets/img/catalogo/sticker-ave.jpg" alt="Sticker ave en tinta"></div>
+      <div class="sticker-frame wall-chip"><img src="assets/img/gallery/ave-tinta-3.jpg" alt="Sticker ave en vuelo"></div>
+      <div class="sticker-frame wall-chip"><img src="assets/img/gallery/hongos-tinta.jpg" alt="Sticker estudio botánico"></div>
+      <div class="sticker-frame wall-chip"><img src="assets/img/gallery/caballo-tinta.jpg" alt="Sticker caballo en tinta"></div>
+    </div>
+
+    <div style="text-align:center;">
+      <a href="#catalogo" class="btn btn-primary">Ver todos los stickers</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CATALOGO ============ -->
+<section class="catalogo" id="catalogo">
+  <div class="container">
+    <div class="section-head">
+      <span class="chip-label chip-yellow">Tienda</span>
+      <h2>Catálogo</h2>
+      <p>Piezas listas para llevar a casa: stickers vinílicos resistentes al agua y cuadros impresos en papel de bellas artes.</p>
+    </div>
+
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="stickers">Stickers</button>
+      <button class="tab-btn" data-tab="cuadros">Cuadros</button>
+      <button class="tab-btn" data-tab="encargo-express">Encargo express</button>
+    </div>
+
+    <div class="tab-panel active" id="tab-stickers">
+      <div class="product-grid">
+        <article class="product-card">
+          <div class="product-media">
+            <span class="product-tag">Nuevo</span>
+            <img src="assets/img/catalogo/sticker-bugambilia.jpg" alt="Sticker bugambilia rosa">
+          </div>
+          <div class="product-body">
+            <h3>Bugambilia rosa</h3>
+            <p>Vinil mate, resistente al agua, 6 cm.</p>
+            <div class="product-foot">
+              <span class="price">$65 <span>MXN</span></span>
+              <button class="btn-mini js-add">Agregar</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-media">
+            <img src="assets/img/catalogo/sticker-flor.jpg" alt="Sticker rama floral rosa">
+          </div>
+          <div class="product-body">
+            <h3>Rama florida</h3>
+            <p>Vinil mate, resistente al agua, 7 cm.</p>
+            <div class="product-foot">
+              <span class="price">$65 <span>MXN</span></span>
+              <button class="btn-mini js-add">Agregar</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-media">
+            <span class="product-tag">Favorito</span>
+            <img src="assets/img/catalogo/sticker-ave.jpg" alt="Sticker ave en tinta">
+          </div>
+          <div class="product-body">
+            <h3>Ave en tinta</h3>
+            <p>Vinil mate, resistente al agua, 6 cm.</p>
+            <div class="product-foot">
+              <span class="price">$70 <span>MXN</span></span>
+              <button class="btn-mini js-add">Agregar</button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="tab-cuadros">
+      <div class="product-grid">
+        <article class="product-card">
+          <div class="product-media">
+            <span class="product-tag">Edición limitada</span>
+            <img src="assets/img/catalogo/cuadro-bugambilia-01.jpg" alt="Cuadro bugambilia en ventana">
+          </div>
+          <div class="product-body">
+            <h3>Bugambilia en la ventana</h3>
+            <p>Impresión giclée · papel algodón 300g · 30×40 cm.</p>
+            <div class="product-foot">
+              <span class="price">$780 <span>MXN</span></span>
+              <button class="btn-mini js-add">Agregar</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-media">
+            <img src="assets/img/catalogo/cuadro-bugambilia-02.jpg" alt="Cuadro rama de bugambilia">
+          </div>
+          <div class="product-body">
+            <h3>Rama de bugambilia</h3>
+            <p>Impresión giclée · papel algodón 300g · 30×40 cm.</p>
+            <div class="product-foot">
+              <span class="price">$780 <span>MXN</span></span>
+              <button class="btn-mini js-add">Agregar</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-media">
+            <span class="product-tag">Original única</span>
+            <img src="assets/img/catalogo/cuadro-caballo.jpg" alt="Cuadro caballo en tinta">
+          </div>
+          <div class="product-body">
+            <h3>Galope, tinta sobre papel</h3>
+            <p>Pieza original firmada · 24×32 cm.</p>
+            <div class="product-foot">
+              <span class="price">$1,450 <span>MXN</span></span>
+              <button class="btn-mini js-add">Agregar</button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="tab-encargo-express">
+      <div class="product-grid">
+        <article class="product-card">
+          <div class="product-media"><img src="assets/img/gallery/hongos-tinta.jpg" alt="Boceto en tinta"></div>
+          <div class="product-body">
+            <h3>Retrato botánico mini</h3>
+            <p>Ilustración personalizada tamaño postal, digital + impresa.</p>
+            <div class="product-foot">
+              <span class="price">Desde $450 <span>MXN</span></span>
+              <a href="#encargos" class="btn-mini">Cotizar</a>
+            </div>
+          </div>
+        </article>
+        <article class="product-card">
+          <div class="product-media"><img src="assets/img/gallery/ave-tinta-2.jpg" alt="Boceto en tinta de ave"></div>
+          <div class="product-body">
+            <h3>Set de 3 stickers a medida</h3>
+            <p>Diseño exclusivo basado en tus referencias.</p>
+            <div class="product-foot">
+              <span class="price">Desde $320 <span>MXN</span></span>
+              <a href="#encargos" class="btn-mini">Cotizar</a>
+            </div>
+          </div>
+        </article>
+        <article class="product-card">
+          <div class="product-media"><img src="assets/img/gallery/caballo-tinta.jpg" alt="Boceto en tinta de caballo"></div>
+          <div class="product-body">
+            <h3>Cuadro por encargo</h3>
+            <p>Pieza original en acuarela o tinta, tamaño a elegir.</p>
+            <div class="product-foot">
+              <span class="price">Desde $1,200 <span>MXN</span></span>
+              <a href="#encargos" class="btn-mini">Cotizar</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GALERIA ============ -->
+<section class="galeria" id="galeria">
+  <div class="container">
+    <div class="section-head">
+      <span class="chip-label chip-green">Portafolio</span>
+      <h2>Galería de proyectos</h2>
+      <p>Una selección de obras y encargos realizados. Cada pieza es pintada a mano antes de digitalizarse.</p>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="gallery-item tallest">
+        <img src="assets/img/gallery/bugambilia-ventana.jpg" alt="Bugambilia junto a ventana, acuarela">
+        <div class="gallery-overlay"><span>Bugambilia, acuarela &amp; tinta</span></div>
+      </div>
+      <div class="gallery-item tall">
+        <img src="assets/img/gallery/ave-tinta-1.jpg" alt="Estudio de ave en tinta">
+        <div class="gallery-overlay"><span>Estudio de ave</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="assets/img/gallery/caballo-tinta.jpg" alt="Caballo en tinta">
+        <div class="gallery-overlay"><span>Galope, tinta</span></div>
+      </div>
+      <div class="gallery-item tall">
+        <img src="assets/img/gallery/ave-tinta-3.jpg" alt="Ave en tinta">
+        <div class="gallery-overlay"><span>Ave en vuelo, tinta</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="assets/img/gallery/hongos-tinta.jpg" alt="Hongos en tinta">
+        <div class="gallery-overlay"><span>Estudio botánico, tinta</span></div>
+      </div>
+      <div class="gallery-item tallest">
+        <img src="assets/img/gallery/bugambilia-rama.jpg" alt="Rama de bugambilia en acuarela">
+        <div class="gallery-overlay"><span>Rama florida, acuarela</span></div>
+      </div>
+      <div class="gallery-item tall">
+        <img src="assets/img/gallery/ave-tinta-2.jpg" alt="Ave en tinta, boceto">
+        <div class="gallery-overlay"><span>Boceto de ave</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ENCARGOS ============ -->
+<section class="encargos" id="encargos">
+  <div class="container encargos-inner">
+    <div class="encargos-info">
+      <span class="chip-label chip-pink">Piezas a medida</span>
+      <h2>Cuéntame tu idea, la pintamos juntas.</h2>
+      <p>Desde un retrato botánico de tu jardín hasta un cuadro conmemorativo: cada encargo es una pieza única, pintada a mano y acompañada de bocetos previos para tu aprobación.</p>
+
+      <ul class="steps">
+        <li>
+          <span class="step-num">1</span>
+          <div class="step-text">
+            <h4>Cuéntame la idea</h4>
+            <p>Comparte referencias, tamaño y estilo deseado en el formulario.</p>
+          </div>
+        </li>
+        <li>
+          <span class="step-num">2</span>
+          <div class="step-text">
+            <h4>Boceto y cotización</h4>
+            <p>Recibes una propuesta y precio en un plazo de 48 horas.</p>
+          </div>
+        </li>
+        <li>
+          <span class="step-num">3</span>
+          <div class="step-text">
+            <h4>Pintura final y envío</h4>
+            <p>Tu pieza se pinta a mano y se envía protegida a tu domicilio.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <form class="form-card" id="encargoForm">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="nombre">Nombre</label>
+          <input type="text" id="nombre" placeholder="Tu nombre" required>
+        </div>
+        <div class="form-group">
+          <label for="correo">Correo</label>
+          <input type="email" id="correo" placeholder="tu@correo.com" required>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="tipo">Tipo de encargo</label>
+          <select id="tipo">
+            <option>Cuadro original</option>
+            <option>Set de stickers</option>
+            <option>Ilustración digital</option>
+            <option>Otro</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="tamano">Tamaño aproximado</label>
+          <select id="tamano">
+            <option>Postal (10×15 cm)</option>
+            <option>Mediano (24×32 cm)</option>
+            <option>Grande (30×40 cm)</option>
+            <option>A definir</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="referencia">Enlace de referencia (opcional)</label>
+        <input type="text" id="referencia" placeholder="Foto, Pinterest, Instagram…">
+      </div>
+
+      <div class="form-group">
+        <label for="mensaje">Cuéntame sobre tu idea</label>
+        <textarea id="mensaje" placeholder="Colores, ocasión, estilo…"></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">Enviar solicitud</button>
+      <p class="form-note">✎ Este es un mockup — el formulario no envía datos todavía. Los métodos de pago y envío se integrarán en la siguiente fase.</p>
+    </form>
+  </div>
+</section>
+
+<!-- ============ SOBRE MI ============ -->
+<section class="sobre-mi" id="sobre-mi">
+  <div class="container sobre-inner">
+    <div class="sobre-media">
+      <img src="assets/img/catalina-vega-retrato.jpg" alt="Catalina Vega, artista">
+    </div>
+    <div class="sobre-copy">
+      <span class="chip-label chip-yellow">Sobre la artista</span>
+      <h2>Catalina Vega</h2>
+      <blockquote>"Pinto lo pequeño con la misma reverencia que lo monumental: una flor, un ala, un instante."</blockquote>
+      <p>Ilustradora mexicana especializada en acuarela y tinta. Su trabajo explora la fragilidad y fuerza del mundo natural — flores, aves y animales — traducidas en trazos sueltos y color translúcido. Cada pieza nace en el estudio y se convierte en cuadros, stickers y encargos para quienes buscan llevar un poco de jardín a su hogar.</p>
+      <p class="sobre-signature">— Catalina</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIOS ============ -->
+<section class="testimonios">
+  <div class="container">
+    <div class="section-head">
+      <span class="chip-label chip-pink">Clientas</span>
+      <h2>Lo que dicen de sus piezas</h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <p>"El cuadro que encargué quedó incluso más bonito de lo que imaginé. Se nota el cuidado en cada trazo."</p>
+        <div class="testi-name">— Renata O.</div>
+      </div>
+      <div class="testi-card">
+        <p>"Los stickers son mi parte favorita del día, la calidad del vinil es excelente y no se despintan."</p>
+        <div class="testi-name">— Ximena L.</div>
+      </div>
+      <div class="testi-card">
+        <p>"Catalina entendió perfecto la idea del retrato botánico de mi jardín. Un regalo inolvidable."</p>
+        <div class="testi-name">— Fernanda R.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NEWSLETTER ============ -->
+<section class="newsletter" id="contacto">
+  <div class="container">
+    <span class="chip-label chip-pink">Boletín</span>
+    <h2>Recibe nuevas piezas antes que nadie</h2>
+    <p>Lanzamientos, encargos abiertos y descuentos exclusivos. Sin spam, lo prometo.</p>
+    <form class="newsletter-form" id="newsletterForm">
+      <input type="email" placeholder="tu@correo.com" required>
+      <button type="submit">Suscribirme →</button>
+    </form>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#inicio" class="brand">
+          <svg class="brand-mark" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="3" width="42" height="42" rx="15" fill="#FF3D8A"/>
+            <circle cx="24" cy="24" r="5" fill="#fff"/>
+            <circle cx="24" cy="14" r="4.5" fill="#fff"/>
+            <circle cx="24" cy="34" r="4.5" fill="#fff"/>
+            <circle cx="14" cy="24" r="4.5" fill="#fff"/>
+            <circle cx="34" cy="24" r="4.5" fill="#fff"/>
+          </svg>
+          <span class="brand-name">Catalina Vega</span>
+        </a>
+        <p>Ilustración original en acuarela y tinta. Stickers, cuadros y encargos hechos a mano en Querétaro, México.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+          </a>
+          <a href="#" aria-label="Pinterest">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M9 17c1-3 1.5-5 2-8m3 2c1.5 0 2.5-1 2.5-2.5S15 6 13 6c-2.5 0-4 1.5-4 3.5 0 1 .5 1.7 1 2"/></svg>
+          </a>
+          <a href="#" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 3v10.5a3.5 3.5 0 11-3-3.46"/><path d="M15 6.5c.8 1.5 2.2 2.5 4 2.7"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Tienda</h4>
+        <ul>
+          <li><a href="#catalogo">Stickers</a></li>
+          <li><a href="#catalogo">Cuadros</a></li>
+          <li><a href="#encargos">Encargos</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Estudio</h4>
+        <ul>
+          <li><a href="#galeria">Galería</a></li>
+          <li><a href="#sobre-mi">Sobre mí</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="mailto:hola@catalinavega.art">hola@catalinavega.art</a></li>
+          <li><a href="#">@arteCatalinaVega</a></li>
+          <li><a href="#">Querétaro, México</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 Catalina Vega Arte. Todos los derechos reservados.</span>
+      <span>Mockup de tienda virtual — sin cobros activos.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ LIGHTBOX ============ -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose">&times;</button>
+  <div class="lightbox-inner">
+    <img id="lightboxImg" src="" alt="">
+    <div class="lightbox-caption" id="lightboxCaption"></div>
+  </div>
+</div>
+
+<div class="toast" id="toast">✓ Agregado al carrito (mockup)</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
