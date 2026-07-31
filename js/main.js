@@ -1,4 +1,6 @@
-// Catalina Vega Arte — interacciones de mockup (sin backend)
+// Catalina Vega Arte — interacciones de la tienda (carrito + WhatsApp)
+
+const WHATSAPP_NUMBER = '524421855823'; // +52, Querétaro, sin espacios ni signos
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -33,25 +35,152 @@ document.addEventListener('DOMContentLoaded', () => {
     toastTimer = setTimeout(() => toast.classList.remove('show'), 2400);
   }
 
-  /* ---------- Agregar al carrito (mockup) ---------- */
+  /* ---------- Carrito ---------- */
+  const CART_KEY = 'catalinaVegaCart';
+  let cart = [];
+  try { cart = JSON.parse(localStorage.getItem(CART_KEY)) || []; } catch { cart = []; }
+
+  const cartToggle = document.getElementById('cartToggle');
+  const cartDrawer = document.getElementById('cartDrawer');
+  const cartOverlay = document.getElementById('cartOverlay');
+  const cartClose = document.getElementById('cartClose');
+  const cartItemsEl = document.getElementById('cartItems');
+  const cartEmptyEl = document.getElementById('cartEmpty');
+  const cartCountEl = document.getElementById('cartCount');
+  const cartTotalEl = document.getElementById('cartTotal');
+  const cartCheckoutBtn = document.getElementById('cartCheckout');
+
+  const money = n => '$' + n.toLocaleString('es-MX', { maximumFractionDigits: 0 });
+
+  function saveCart() { localStorage.setItem(CART_KEY, JSON.stringify(cart)); }
+
+  function cartCount() { return cart.reduce((sum, i) => sum + i.qty, 0); }
+  function cartTotal() { return cart.reduce((sum, i) => sum + i.qty * i.price, 0); }
+
+  function renderCart() {
+    cartCountEl.textContent = cartCount();
+    cartCountEl.dataset.empty = cartCount() === 0 ? 'true' : 'false';
+    cartTotalEl.innerHTML = money(cartTotal()) + ' <small>MXN</small>';
+    cartCheckoutBtn.disabled = cart.length === 0;
+
+    cartItemsEl.innerHTML = '';
+    if (cart.length === 0) {
+      cartEmptyEl && (cartEmptyEl.style.display = '');
+      const p = document.createElement('p');
+      p.className = 'cart-empty';
+      p.textContent = 'Tu carrito está vacío. Agrega stickers o cuadros del catálogo.';
+      cartItemsEl.appendChild(p);
+      return;
+    }
+
+    cart.forEach(item => {
+      const row = document.createElement('div');
+      row.className = 'cart-item';
+      row.innerHTML = `
+        <div class="cart-item-name">${item.name}</div>
+        <div class="cart-item-subtotal">${money(item.qty * item.price)}</div>
+        <div class="cart-item-price">${money(item.price)} c/u</div>
+        <div class="cart-item-qty">
+          <button class="qty-btn" data-action="dec" data-id="${item.id}" aria-label="Quitar uno">−</button>
+          <span class="qty-value">${item.qty}</span>
+          <button class="qty-btn" data-action="inc" data-id="${item.id}" aria-label="Agregar uno">+</button>
+          <button class="cart-item-remove" data-action="remove" data-id="${item.id}">Quitar</button>
+        </div>`;
+      cartItemsEl.appendChild(row);
+    });
+  }
+
+  function addToCart(id, name, price) {
+    const existing = cart.find(i => i.id === id);
+    if (existing) existing.qty += 1;
+    else cart.push({ id, name, price, qty: 1 });
+    saveCart();
+    renderCart();
+  }
+
+  function changeQty(id, delta) {
+    const item = cart.find(i => i.id === id);
+    if (!item) return;
+    item.qty += delta;
+    if (item.qty <= 0) cart = cart.filter(i => i.id !== id);
+    saveCart();
+    renderCart();
+  }
+
+  function removeItem(id) {
+    cart = cart.filter(i => i.id !== id);
+    saveCart();
+    renderCart();
+  }
+
+  function openCart() {
+    cartDrawer.classList.add('open');
+    cartOverlay.classList.add('show');
+  }
+  function closeCart() {
+    cartDrawer.classList.remove('open');
+    cartOverlay.classList.remove('show');
+  }
+
+  cartToggle?.addEventListener('click', openCart);
+  cartClose?.addEventListener('click', closeCart);
+  cartOverlay?.addEventListener('click', closeCart);
+
+  cartItemsEl?.addEventListener('click', (e) => {
+    const btn = e.target.closest('button[data-action]');
+    if (!btn) return;
+    const id = btn.dataset.id;
+    if (btn.dataset.action === 'inc') changeQty(id, 1);
+    if (btn.dataset.action === 'dec') changeQty(id, -1);
+    if (btn.dataset.action === 'remove') removeItem(id);
+  });
+
   document.querySelectorAll('.js-add').forEach(btn => {
     btn.addEventListener('click', () => {
-      const title = btn.closest('.product-card')?.querySelector('h3')?.textContent || 'Producto';
-      showToast(`✓ "${title}" agregado al carrito (mockup)`);
+      const card = btn.closest('.product-card');
+      const id = card?.dataset.id;
+      const name = card?.dataset.name || card?.querySelector('h3')?.textContent || 'Producto';
+      const price = parseFloat(card?.dataset.price || '0');
+      if (!id) return;
+      addToCart(id, name, price);
+      showToast(`✓ "${name}" agregado al carrito`);
     });
   });
 
-  /* ---------- Formulario de encargos (mockup) ---------- */
-  document.getElementById('encargoForm')?.addEventListener('submit', (e) => {
-    e.preventDefault();
-    showToast('✓ Solicitud enviada (mockup) — sin envío real de datos');
-    e.target.reset();
+  cartCheckoutBtn?.addEventListener('click', () => {
+    if (cart.length === 0) return;
+    const lines = cart.map(i => `• ${i.name} x${i.qty} — ${money(i.price)} c/u — ${money(i.qty * i.price)}`);
+    const message =
+      `¡Hola Catalina! Quiero hacer este pedido 🛍️\n\n` +
+      lines.join('\n') +
+      `\n\nTotal: ${money(cartTotal())} MXN\n\n` +
+      `Quedo al pendiente para confirmar disponibilidad, pago y envío. ¡Gracias!`;
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
   });
 
-  /* ---------- Newsletter (mockup) ---------- */
-  document.getElementById('newsletterForm')?.addEventListener('submit', (e) => {
+  renderCart();
+
+  /* ---------- Formulario de encargos → WhatsApp ---------- */
+  document.getElementById('encargoForm')?.addEventListener('submit', (e) => {
     e.preventDefault();
-    showToast('✓ Suscripción registrada (mockup)');
+    const nombre = document.getElementById('nombre')?.value.trim();
+    const correo = document.getElementById('correo')?.value.trim();
+    const tipo = document.getElementById('tipo')?.value;
+    const tamano = document.getElementById('tamano')?.value;
+    const referencia = document.getElementById('referencia')?.value.trim();
+    const mensaje = document.getElementById('mensaje')?.value.trim();
+
+    const message =
+      `¡Hola Catalina! Quiero hacer un encargo 🎨\n\n` +
+      `Nombre: ${nombre}\n` +
+      `Correo: ${correo}\n` +
+      `Tipo de encargo: ${tipo}\n` +
+      `Tamaño aproximado: ${tamano}\n` +
+      `Referencia: ${referencia || 'No especificada'}\n` +
+      `Detalles: ${mensaje || 'Sin detalles adicionales'}`;
+
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
+    showToast('✓ Abriendo WhatsApp con tu solicitud…');
     e.target.reset();
   });
 
