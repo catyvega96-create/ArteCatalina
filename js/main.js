@@ -1,6 +1,6 @@
 // Catalina Vega Arte — interacciones de la tienda (carrito + WhatsApp)
 
-const WHATSAPP_NUMBER = '524421855823'; // +52, Querétaro, sin espacios ni signos
+const WHATSAPP_NUMBER = '525643637527'; // +52, Querétaro, sin espacios ni signos
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -41,14 +41,17 @@ document.addEventListener('DOMContentLoaded', () => {
   try { cart = JSON.parse(localStorage.getItem(CART_KEY)) || []; } catch { cart = []; }
 
   const cartToggle = document.getElementById('cartToggle');
+  const cartFab = document.getElementById('cartFab');
   const cartDrawer = document.getElementById('cartDrawer');
   const cartOverlay = document.getElementById('cartOverlay');
   const cartClose = document.getElementById('cartClose');
   const cartItemsEl = document.getElementById('cartItems');
   const cartEmptyEl = document.getElementById('cartEmpty');
   const cartCountEl = document.getElementById('cartCount');
+  const cartCountFabEl = document.getElementById('cartCountFab');
   const cartTotalEl = document.getElementById('cartTotal');
   const cartCheckoutBtn = document.getElementById('cartCheckout');
+  const isDesktop = () => window.matchMedia('(min-width: 761px)').matches;
 
   const money = n => '$' + n.toLocaleString('es-MX', { maximumFractionDigits: 0 });
 
@@ -58,8 +61,12 @@ document.addEventListener('DOMContentLoaded', () => {
   function cartTotal() { return cart.reduce((sum, i) => sum + i.qty * i.price, 0); }
 
   function renderCart() {
-    cartCountEl.textContent = cartCount();
-    cartCountEl.dataset.empty = cartCount() === 0 ? 'true' : 'false';
+    const count = cartCount();
+    [cartCountEl, cartCountFabEl].forEach(el => {
+      if (!el) return;
+      el.textContent = count;
+      el.dataset.empty = count === 0 ? 'true' : 'false';
+    });
     cartTotalEl.innerHTML = money(cartTotal()) + ' <small>MXN</small>';
     cartCheckoutBtn.disabled = cart.length === 0;
 
@@ -96,6 +103,8 @@ document.addEventListener('DOMContentLoaded', () => {
     else cart.push({ id, name, price, qty: 1 });
     saveCart();
     renderCart();
+    // En escritorio el ribbon se muestra solo al agregar algo (persiste hasta vaciarse)
+    if (isDesktop()) openCart();
   }
 
   function changeQty(id, delta) {
@@ -105,12 +114,14 @@ document.addEventListener('DOMContentLoaded', () => {
     if (item.qty <= 0) cart = cart.filter(i => i.id !== id);
     saveCart();
     renderCart();
+    if (cart.length === 0) closeCart();
   }
 
   function removeItem(id) {
     cart = cart.filter(i => i.id !== id);
     saveCart();
     renderCart();
+    if (cart.length === 0) closeCart();
   }
 
   function openCart() {
@@ -123,6 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   cartToggle?.addEventListener('click', openCart);
+  cartFab?.addEventListener('click', openCart);
   cartClose?.addEventListener('click', closeCart);
   cartOverlay?.addEventListener('click', closeCart);
 
@@ -159,6 +171,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   renderCart();
+  if (isDesktop() && cart.length > 0) openCart();
 
   /* ---------- Formulario de encargos → WhatsApp ---------- */
   document.getElementById('encargoForm')?.addEventListener('submit', (e) => {
